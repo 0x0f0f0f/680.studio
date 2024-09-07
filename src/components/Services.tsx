@@ -1,14 +1,23 @@
+import { Separator } from '@radix-ui/react-separator'
 import {
-  BellIcon,
-  CalendarIcon,
-  GlobeIcon,
-  InputIcon,
-} from '@radix-ui/react-icons'
+  ArrowRight,
+  FileAudio,
+  Github,
+  Glasses,
+  Globe,
+  Mic,
+} from 'lucide-react'
+import BlurFade from './magicui/blur-fade'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from './ui/card'
+import { ResponsiveButton } from './ui/responsive-button'
 
-import { BentoCard, BentoGrid } from '@/components/magicui/bento-grid'
-import { FileAudio, Glasses, Mic } from 'lucide-react'
-
-const features = [
+const data = [
   {
     Icon: FileAudio,
     name: 'Mixing & Mastering',
@@ -16,7 +25,7 @@ const features = [
       'Expert audio mixing & mastering services that enhance clarity, balance, and volume to deliver industry-standard sound ready for any platform. 680 Hz is often referred to as the "Frequency of the soul": we strive to emphasize a human aspect in our services in order to match your taste and requirements.',
     href: '/',
     cta: 'Send a Request',
-    background: <img src="/mixing.jpg" className="h-64 w-full opacity-80" />,
+    background: '/mixing.jpg',
     className: 'lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3',
   },
   {
@@ -26,22 +35,8 @@ const features = [
       "Professional recording, editing, and production services in our state-of-the-art studios, delivering high-quality audio tailored to your creative vision. Our studios are equipped with top-tier gear and acoustically treated rooms, ensuring pristine sound quality for any project—whether it's your band's album, DJ set, or indie film.",
     href: '#contact',
     cta: 'Book a session with us',
-    background: (
-      <img
-        src="/recording.jpg"
-        className="h-64 w-full object-cover opacity-80"
-      />
-    ),
+    background: '/recording.jpg',
     className: 'lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-4',
-  },
-  {
-    Icon: CalendarIcon,
-    name: 'Book a Session',
-    description: 'Contact us to book a session in our studios.',
-    href: '#contact',
-    cta: 'Book a session',
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
-    className: 'lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2',
   },
   {
     Icon: Glasses,
@@ -50,22 +45,43 @@ const features = [
       'Are you looking to learn how to produce music? How to record instruments, or how to mix and master your tracks? No worries, we provide in-person, in-depth, expert-led masterclass sessions',
     href: '#contact',
     cta: 'Learn more',
-    background: (
-      <img
-        src="/masterclass.jpg"
-        className="h-32 w-full object-cover opacity-80"
-      />
-    ),
-    className: 'lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4',
+    background: '/masterclass.jpg',
+    className: 'lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-4',
   },
 ]
 
 export default function Services() {
   return (
-    <BentoGrid className="lg:grid-rows-3">
-      {features.map((feature) => (
-        <BentoCard key={feature.name} {...feature} />
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+      {data.map((s, idx) => (
+        <BlurFade delay={0.25 + idx * 0.05} inView>
+          <Card className="h-full">
+            <CardHeader className="gap-y-2">
+              <img
+                src={s.background}
+                alt={s.name}
+                className="w-full rounded-t-md object-cover"
+                style={{ aspectRatio: '300/200', objectFit: 'cover' }}
+              />
+              <Separator className="my-4" />
+              <CardTitle className="md:text-xl lg:text-2xl">{s.name}</CardTitle>
+              <CardDescription className="lg:text-xl">
+                {s.description}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="justify-left flex w-full flex-wrap items-end gap-4">
+              <a href={s.href}>
+                <ResponsiveButton
+                  className="w-full"
+                  label={s.cta}
+                  icon={ArrowRight}
+                  alwaysShowLabel
+                />
+              </a>
+            </CardContent>
+          </Card>
+        </BlurFade>
       ))}
-    </BentoGrid>
+    </div>
   )
 }
