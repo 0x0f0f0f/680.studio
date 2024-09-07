@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Circle background -->
+  <circle cx="100" cy="100" r="90" fill="#282828" stroke="#FFD700" stroke-width="5"/>
+
+  <!-- Microphone shape -->
+  <rect x="80" y="60" width="40" height="60" rx="10" ry="10" fill="#FFD700"/>
+  <rect x="90" y="120" width="20" height="30" fill="#FFD700"/>
+  <circle cx="100" cy="60" r="20" fill="#FFD700"/>
+
+  <!-- Music notes -->
+  <path d="M130 60 Q150 50 150 80 T130 100" fill="none" stroke="#FFD700" stroke-width="3"/>
+  <circle cx="130" cy="100" r="5" fill="#FFD700"/>
+
+  <path d="M70 60 Q50 50 50 80 T70 100" fill="none" stroke="#FFD700" stroke-width="3"/>
+  <circle cx="70" cy="100" r="5" fill="#FFD700"/>
+
+  <!-- Studio name text -->
+  <text x="50" y="170" fill="#FFD700" font-size="24" font-family="Arial" font-weight="bold">StudioName</text>
+</svg>

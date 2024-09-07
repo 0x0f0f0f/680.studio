@@ -4,8 +4,10 @@ import { buttonVariants } from '@/components/ui/button'
 import WordPullUp from '@/components/magicui/word-pull-up'
 import { Separator } from '@/components/ui/separator'
 import ClientsChart from '@/components/clientschart'
-import TextReveal from '@/components/magicui/text-reveal'
 import Who from '@/components/Who.astro'
+import { VelocityScroll } from '@/components/magicui/scroll-based-velocity'
+import { motion } from 'framer-motion'
+import BlurFade from '@/components/magicui/blur-fade'
 ---
 
 <BaseLayout
@@ -14,40 +16,59 @@ import Who from '@/components/Who.astro'
 >
   <section class="container grid items-center gap-6 pb-8 pt-6 md:py-10">
     <div class="flex w-full flex-col items-center gap-4">
-      <WordPullUp
-        client:load
-        className="text-4xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-7xl md:leading-[5rem]"
-        words="680 Hz Studios"
-      />
-      <p class="max-w-[700px] text-lg text-muted-foreground">
-        Production, Recording, Mixing and Mastering Studios in Berlin.
-      </p>
-      <a
-        href="mailto:info@michelemucci.net"
-        target="_blank"
-        rel="noreferrer"
-        class={buttonVariants()}
-      >
-        Contact Us
-      </a>
+      <div class="flex h-[78vh] flex-col items-center justify-center gap-4">
+        <WordPullUp
+          client:load
+          className="text-4xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-7xl md:leading-[5rem]"
+          words="680 Hz Studios"
+        />
+
+        <BlurFade delay={0.25 * 0.05} inView client:load>
+          <p class="max-w-[700px] text-center text-lg text-muted-foreground">
+            Production, Recording, Mixing and Mastering Studios in Berlin.
+          </p>
+        </BlurFade>
+
+        <BlurFade delay={0.25 * 0.05} inView client:load>
+          <motion.a
+            href="#who"
+            rel="noreferrer"
+            className={buttonVariants()}
+            client:load
+          >
+            Who are we?
+          </motion.a>
+
+          <a
+            href="mailto:info@michelemucci.net"
+            target="_blank"
+            rel="noreferrer"
+            class={buttonVariants()}
+          >
+            Contact Us
+          </a>
+        </BlurFade>
+      </div>
 
       <Separator />
+    </div>
+  </section>
 
-      <ClientsChart
-        title="Our Clients"
-        label="Our Clients"
-        description="November 2022 - Now"
-        footer="Trusting our professional audio services"
-        chartData={[{ clients: 85, fill: 'var(--color-safari)' }]}
-        client:load
-      />
+  <div id="who"></div>
 
-      <Separator />
+  <VelocityScroll
+    text=" - Who are we? "
+    default_velocity={5}
+    className="font-display text-center text-5xl font-bold tracking-[-0.02em] text-black drop-shadow-sm dark:text-white md:text-7xl md:leading-[5rem]"
+    client:load
+  />
 
-      <TextReveal text="Who are we?" client:load />
-      <Who />
-      <div>
-        <!-- <a
+  <section class="container my-16 grid items-center gap-6 pb-8 pt-8 md:py-10">
+    <Who />
+  </section>
+
+  <div>
+    <!-- <a
         href="https://github.com/AREA44/astro-shadcn-ui-template"
         target="_blank"
         rel="noreferrer"
@@ -55,7 +76,18 @@ import Who from '@/components/Who.astro'
       >
         GitHub
       </a> -->
-      </div>
-    </div>
-  </section>
+  </div>
+
+  <!-- <section>
+    <ClientsChart
+      title="Our Clients"
+      label="Our Clients"
+      description="November 2022 - Now"
+      footer="Trusting our professional audio services"
+      chartData={[{ clients: 85, fill: 'var(--color-safari)' }]}
+      client:load
+    />
+
+    <Separator />
+  </section> -->
 </BaseLayout>

@@ -1,19 +1,32 @@
 ---
 import Image from 'astro/components/Image.astro'
 import { description } from './clientschart'
-import { Card, CardDescription, CardHeader, CardTitle } from './ui/card'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from './ui/card'
 import { Separator } from './ui/separator'
+import BlurFade from './magicui/blur-fade'
+import ShimmerButton from './magicui/shimmer-button'
+import { ResponsiveButton } from './ui/responsive-button'
+import { Github, Globe } from 'lucide-react'
 
 const data = [
   {
     name: 'Michele Mucci',
     description: 'Founder, Mix & Mastering Engineer',
     picture: '/michele.jpg',
+    website: 'https://michelemucci.net',
   },
   {
     name: 'Alessandro Cheli',
-    description: 'Co-Founder, Computer Scientist, Developer, Producer',
+    description: 'Engineer, Developer, Producer',
     picture: '/alessandro.jpg',
+    website: 'https://cheli.dev',
+    github: 'https://github.com/0x0f0f0f',
   },
   {
     name: 'Hamza Ben Abdallah',
@@ -23,24 +36,51 @@ const data = [
 ]
 ---
 
-<div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
   {
-    data.map((person) => (
-      <Card>
-        <CardHeader className="gap-y-4">
-          <Image
-            src={person.picture}
-            alt={person.name}
-            width={300}
-            height={300}
-            class="h-full w-full rounded-t-md object-cover"
-            style={{ aspectRatio: '300/300', objectFit: 'cover' }}
-          />
-          <Separator className="my-4" />
-          <CardTitle>{person.name}</CardTitle>
-          <CardDescription>{person.description}</CardDescription>
-        </CardHeader>
-      </Card>
+    data.map((person, idx) => (
+      <BlurFade delay={0.25 + idx * 0.05} inView client:load>
+        <Card className="h-full">
+          <CardHeader className="gap-y-2">
+            <Image
+              src={person.picture}
+              alt={person.name}
+              width={300}
+              height={300}
+              class="h-full w-full rounded-t-md object-cover"
+              style={{ aspectRatio: '300/300', objectFit: 'cover' }}
+            />
+            <Separator className="my-4" />
+            <CardTitle className="md:text-xl lg:text-2xl">
+              {person.name}
+            </CardTitle>
+            <CardDescription className="lg:text-xl">
+              {person.description}
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="flex flex-wrap w-full items-end justify-left gap-4">
+            {person.website && (
+              <a href={person.website}>
+                <ResponsiveButton
+                  className="w-full"
+                  label="Website"
+                  icon={Globe}
+                  alwaysShowLabel
+                />
+              </a>
+            )}
+            {person.github && (
+              <a href={person.github}>
+                <ResponsiveButton
+                  label="Github"
+                  icon={Github}
+                  alwaysShowLabel
+                />
+              </a>
+            )}
+          </CardContent>
+        </Card>
+      </BlurFade>
     ))
   }
 </div>
