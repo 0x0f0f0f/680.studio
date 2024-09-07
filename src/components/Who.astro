@@ -1,0 +1,46 @@
+---
+import Image from 'astro/components/Image.astro'
+import { description } from './clientschart'
+import { Card, CardDescription, CardHeader, CardTitle } from './ui/card'
+import { Separator } from './ui/separator'
+
+const data = [
+  {
+    name: 'Michele Mucci',
+    description: 'Founder, Mix & Mastering Engineer',
+    picture: '/michele.jpg',
+  },
+  {
+    name: 'Alessandro Cheli',
+    description: 'Co-Founder, Computer Scientist, Developer, Producer',
+    picture: '/alessandro.jpg',
+  },
+  {
+    name: 'Hamza Ben Abdallah',
+    description: 'Recording and Mixing Engineer, Producer',
+    picture: '/hamza.jpg',
+  },
+]
+---
+
+<div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+  {
+    data.map((person) => (
+      <Card>
+        <CardHeader className="gap-y-4">
+          <Image
+            src={person.picture}
+            alt={person.name}
+            width={300}
+            height={300}
+            class="h-full w-full rounded-t-md object-cover"
+            style={{ aspectRatio: '300/300', objectFit: 'cover' }}
+          />
+          <Separator className="my-4" />
+          <CardTitle>{person.name}</CardTitle>
+          <CardDescription>{person.description}</CardDescription>
+        </CardHeader>
+      </Card>
+    ))
+  }
+</div>

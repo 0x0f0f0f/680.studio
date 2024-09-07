@@ -1,6 +1,11 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { buttonVariants } from '@/components/ui/button'
+import WordPullUp from '@/components/magicui/word-pull-up'
+import { Separator } from '@/components/ui/separator'
+import ClientsChart from '@/components/clientschart'
+import TextReveal from '@/components/magicui/text-reveal'
+import Who from '@/components/Who.astro'
 ---
 
 <BaseLayout
@@ -8,17 +13,15 @@ import { buttonVariants } from '@/components/ui/button'
   description="Production, Recording, Mixing and Mastering Studios in Berlin."
 >
   <section class="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-    <div class="flex max-w-[980px] flex-col items-start gap-2">
-      <h1
-        class="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl"
-      >
-        680Hz Studios <br class="hidden sm:inline" />
-      </h1>
+    <div class="flex w-full flex-col items-center gap-4">
+      <WordPullUp
+        client:load
+        className="text-4xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-7xl md:leading-[5rem]"
+        words="680 Hz Studios"
+      />
       <p class="max-w-[700px] text-lg text-muted-foreground">
         Production, Recording, Mixing and Mastering Studios in Berlin.
       </p>
-    </div>
-    <div class="flex gap-4">
       <a
         href="mailto:info@michelemucci.net"
         target="_blank"
@@ -27,7 +30,24 @@ import { buttonVariants } from '@/components/ui/button'
       >
         Contact Us
       </a>
-      <!-- <a
+
+      <Separator />
+
+      <ClientsChart
+        title="Our Clients"
+        label="Our Clients"
+        description="November 2022 - Now"
+        footer="Trusting our professional audio services"
+        chartData={[{ clients: 85, fill: 'var(--color-safari)' }]}
+        client:load
+      />
+
+      <Separator />
+
+      <TextReveal text="Who are we?" client:load />
+      <Who />
+      <div>
+        <!-- <a
         href="https://github.com/AREA44/astro-shadcn-ui-template"
         target="_blank"
         rel="noreferrer"
@@ -35,6 +55,7 @@ import { buttonVariants } from '@/components/ui/button'
       >
         GitHub
       </a> -->
+      </div>
     </div>
   </section>
 </BaseLayout>
