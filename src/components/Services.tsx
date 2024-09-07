@@ -23,7 +23,7 @@ const data = [
     name: 'Mixing & Mastering',
     description:
       'Expert audio mixing & mastering services that enhance clarity, balance, and volume to deliver industry-standard sound ready for any platform. 680 Hz is often referred to as the "Frequency of the soul": we strive to emphasize a human aspect in our services in order to match your taste and requirements.',
-    href: '/',
+    href: '#contact',
     cta: 'Send a Request',
     background: '/mixing.jpg',
     className: 'lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3',
@@ -52,7 +52,7 @@ const data = [
 
 export default function Services() {
   return (
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+    <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
       {data.map((s, idx) => (
         <BlurFade delay={0.25 + idx * 0.05} inView>
           <Card className="h-full">
