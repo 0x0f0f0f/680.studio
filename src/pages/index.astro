@@ -10,15 +10,17 @@ import { motion } from 'framer-motion'
 import BlurFade from '@/components/magicui/blur-fade'
 import PulsatingButton from '@/components/magicui/pulsating-button'
 import Services from '@/components/Services'
+import SineBackground from '@/components/SineBackground'
 ---
 
 <BaseLayout
   title="680Hz Studios"
   description="Production, Recording, Mixing and Mastering Studios in Berlin."
 >
+  <SineBackground client:only />
   <section class="container grid items-center gap-6 pb-8 pt-6 md:py-10">
     <div class="flex w-full flex-col items-center gap-4">
-      <div class="flex h-[78vh] flex-col items-center justify-center gap-4">
+      <div class="flex h-[90vh] flex-col items-center justify-center gap-4">
         <WordPullUp
           client:load
           className="text-4xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-7xl md:leading-[5rem]"
