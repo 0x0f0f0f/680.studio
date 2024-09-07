@@ -8,6 +8,8 @@ import Who from '@/components/Who.astro'
 import { VelocityScroll } from '@/components/magicui/scroll-based-velocity'
 import { motion } from 'framer-motion'
 import BlurFade from '@/components/magicui/blur-fade'
+import PulsatingButton from '@/components/magicui/pulsating-button'
+import Services from '@/components/Services'
 ---
 
 <BaseLayout
@@ -30,22 +32,10 @@ import BlurFade from '@/components/magicui/blur-fade'
         </BlurFade>
 
         <BlurFade delay={0.25 * 0.05} inView client:load>
-          <motion.a
-            href="#who"
-            rel="noreferrer"
-            className={buttonVariants()}
-            client:load
-          >
-            Who are we?
-          </motion.a>
-
-          <a
-            href="mailto:info@michelemucci.net"
-            target="_blank"
-            rel="noreferrer"
-            class={buttonVariants()}
-          >
-            Contact Us
+          <a href="#services">
+            <PulsatingButton pulseColor="#000000" className={buttonVariants()}
+              >Explore Our Services</PulsatingButton
+            >
           </a>
         </BlurFade>
       </div>
@@ -53,6 +43,25 @@ import BlurFade from '@/components/magicui/blur-fade'
       <Separator />
     </div>
   </section>
+
+  <!-- ------------------- SERVICES -----------------  -->
+
+  <div id="services"></div>
+
+  <VelocityScroll
+    text=" - Our services "
+    default_velocity={5}
+    className="font-display text-center text-5xl font-bold tracking-[-0.02em] text-black drop-shadow-sm dark:text-white md:text-7xl md:leading-[5rem]"
+    client:load
+  />
+
+  <section class="container my-16 grid items-center gap-6 pb-8 pt-8 md:py-32">
+    <BlurFade delay={0.25 * 0.05} inView client:load>
+      <Services />
+    </BlurFade>
+  </section>
+
+  <!-- ------------------- TEAM -----------------  -->
 
   <div id="who"></div>
 
@@ -66,17 +75,6 @@ import BlurFade from '@/components/magicui/blur-fade'
   <section class="container my-16 grid items-center gap-6 pb-8 pt-8 md:py-10">
     <Who />
   </section>
-
-  <div>
-    <!-- <a
-        href="https://github.com/AREA44/astro-shadcn-ui-template"
-        target="_blank"
-        rel="noreferrer"
-        class={buttonVariants({ variant: 'outline' })}
-      >
-        GitHub
-      </a> -->
-  </div>
 
   <!-- <section>
     <ClientsChart
