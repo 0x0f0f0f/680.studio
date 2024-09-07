@@ -1,12 +1,5 @@
 import { Separator } from '@radix-ui/react-separator'
-import {
-  ArrowRight,
-  FileAudio,
-  Github,
-  Glasses,
-  Globe,
-  Mic,
-} from 'lucide-react'
+import { ArrowRight, FileAudio, Glasses, Mic } from 'lucide-react'
 import BlurFade from './magicui/blur-fade'
 import {
   Card,
@@ -34,7 +27,7 @@ const data = [
     description:
       "Professional recording, editing, and production services in our state-of-the-art studios, delivering high-quality audio tailored to your creative vision. Our studios are equipped with top-tier gear and acoustically treated rooms, ensuring pristine sound quality for any project—whether it's your band's album, DJ set, or indie film.",
     href: '#contact',
-    cta: 'Book a session with us',
+    cta: 'Book a Session',
     background: '/recording.jpg',
     className: 'lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-4',
   },
@@ -64,22 +57,24 @@ export default function Services() {
                 style={{ aspectRatio: '300/200', objectFit: 'cover' }}
               />
               <Separator className="my-4" />
-              <CardTitle className="md:text-xl lg:text-2xl">{s.name}</CardTitle>
+              <CardTitle className="flex items-center gap-4 md:text-xl lg:text-2xl">
+                <s.Icon />
+                {s.name}
+              </CardTitle>
               <CardDescription className="lg:text-xl">
                 {s.description}
               </CardDescription>
             </CardHeader>
-            <CardContent className="justify-left flex w-full flex-wrap items-end gap-4">
-              <a href={s.href}>
-                <ResponsiveButton
-                  className="w-full"
-                  label={s.cta}
-                  icon={ArrowRight}
-                  alwaysShowLabel
-                />
-              </a>
-            </CardContent>
           </Card>
+          <a href={s.href}>
+            <ResponsiveButton
+              className="w-full"
+              variant="outline"
+              label={s.cta}
+              icon={ArrowRight}
+              alwaysShowLabel
+            />
+          </a>
         </BlurFade>
       ))}
     </div>
