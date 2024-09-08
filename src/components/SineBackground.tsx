@@ -12,8 +12,8 @@ class Wave {
   frequency: number
   increment: number
   bgOpacity: number
+  lineLength: number
   y: number
-  frameCallback: () => void
 
   constructor(
     canv: HTMLCanvasElement,
@@ -21,6 +21,7 @@ class Wave {
     length = 100,
     frequency = 8,
     bgOpacity = 0.03,
+    lineLength = 32,
     y: number,
   ) {
     this.canvas = canv
@@ -31,25 +32,29 @@ class Wave {
     this.frequency = frequency
     this.increment = Math.random() * 360
     this.bgOpacity = bgOpacity
+    this.lineLength = lineLength
     this.y = y || this.canvas.height / 2
 
-    this.frameCallback = () => {
-      this.draw(this.ctx)
-      requestAnimationFrame(this.frameCallback)
-    }
+    requestAnimationFrame(this.draw.bind(this))
   }
 
-  draw(c: CanvasRenderingContext2D) {
+  draw(t: number) {
+    const c = this.ctx
+    if (!c) return null
     c.beginPath()
 
-    this.ctx.fillStyle = `rgba(255,255,255,${this.bgOpacity})`
-    this.ctx.strokeStyle = `rgba(0,0,0,0.8)`
+    c.fillStyle = `rgba(255,255,255,${this.bgOpacity})`
+    c.strokeStyle = `rgba(0,0,0,0.8)`
 
     c.fillRect(0, 0, this.canvas.width, this.canvas.height)
 
     c.moveTo(0, this.canvas.height / 2)
 
-    for (let i = 0; i < this.canvas.width; i += 1) {
+    for (
+      let i = 0;
+      i < this.canvas.width + this.lineLength;
+      i += this.lineLength
+    ) {
       c.lineTo(
         i,
         this.y + Math.sin(i / this.length + this.increment) * this.amplitude,
@@ -63,8 +68,9 @@ class Wave {
     this.increment -= this.frequency / 1000
   }
 
-  animate() {
-    this.frameCallback()
+  animate(t: number) {
+    this.draw(t)
+    requestAnimationFrame(this.animate.bind(this))
   }
 }
 
@@ -96,11 +102,11 @@ const CanvasBackground = ({
 
       resizeHandler()
 
-      const wave = new Wave(canvas, 150, 200, 680 / 128, 0.5, 0)
+      const wave = new Wave(canvas, 150, 200, 680 / 128, 0.5, 40, 0)
 
       if (context) {
         context.clearRect(0, 0, canvas.width, canvas.height)
-        wave.animate()
+        wave.animate(0)
       }
 
       return () => {
@@ -108,8 +114,6 @@ const CanvasBackground = ({
       }
     }
   }, [])
-
-  console.log('CIAOOO')
 
   return (
     <div className={cn('relative', className)}>
