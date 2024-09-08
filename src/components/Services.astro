@@ -1,3 +1,4 @@
+---
 import { Separator } from '@radix-ui/react-separator'
 import { ArrowRight, FileAudio, Glasses, Mic } from 'lucide-react'
 import BlurFade from './magicui/blur-fade'
@@ -43,52 +44,48 @@ const data = [
     className: 'lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-4',
   },
 ]
+---
 
-export default function Services() {
-  return (
-    <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-      {data.map((s, idx) => (
-        <BlurFade delay={0.25 + idx * 0.2} inView>
-          <div className="h-full">
-            <Card className="h-full border-none shadow-none">
-              <CardHeader className="justify-even flex h-full gap-y-2">
-                <img
-                  src={s.background}
-                  alt={s.name}
-                  className="w-full rounded-t-md object-cover"
-                  style={{ aspectRatio: '300/200', objectFit: 'cover' }}
-                />
-                <Separator className="my-4" />
-                <CardTitle className="flex items-center gap-4 md:text-xl lg:text-2xl">
-                  <s.Icon />
-                  {s.name}
-                </CardTitle>
-                <CardDescription className="lg:text-xl">
-                  {s.description}
-                </CardDescription>
-              </CardHeader>
-            </Card>
-            <a
-              href={s.href}
-              className="flex w-full items-center justify-center"
-            >
-              {/* <ResponsiveButton
+<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+  {
+    data.map((s, idx) => (
+      <BlurFade delay={0.25 + idx * 0.2} inView client:load>
+        <div class="h-full pb-16">
+          <Card className="h-full border-none shadow-none">
+            <CardHeader className="justify-even flex h-full gap-y-2">
+              <img
+                src={s.background}
+                alt={s.name}
+                class="w-full rounded-t-md object-cover"
+                style={{ aspectRatio: '300/200', objectFit: 'cover' }}
+              />
+              <Separator className="my-4" />
+              <CardTitle className="flex items-center gap-4 md:text-xl lg:text-2xl">
+                <s.Icon />
+                {s.name}
+              </CardTitle>
+              <CardDescription className="lg:text-xl">
+                {s.description}
+              </CardDescription>
+            </CardHeader>
+          </Card>
+          <a href={s.href} class="flex w-full items-center justify-center">
+            {/* <ResponsiveButton
                 className="w-full"
                 variant="outline"
                 label={s.cta}
                 icon={ArrowRight}
                 alwaysShowLabel
               /> */}
-              <ShimmerButton className="shadow-2xl">
-                <span className="flex items-center gap-x-2 whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
-                  {s.cta}
-                  <ArrowRight />
-                </span>
-              </ShimmerButton>
-            </a>
-          </div>
-        </BlurFade>
-      ))}
-    </div>
-  )
-}
+            <ShimmerButton className="shadow-2xl">
+              <span class="flex items-center gap-x-2 whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+                {s.cta}
+                <ArrowRight />
+              </span>
+            </ShimmerButton>
+          </a>
+        </div>
+      </BlurFade>
+    ))
+  }
+</div>

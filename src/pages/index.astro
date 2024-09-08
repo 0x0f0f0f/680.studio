@@ -1,15 +1,11 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import { buttonVariants } from '@/components/ui/button'
 import WordPullUp from '@/components/magicui/word-pull-up'
 import { Separator } from '@/components/ui/separator'
-import ClientsChart from '@/components/clientschart'
 import Who from '@/components/Who.astro'
 import { VelocityScroll } from '@/components/magicui/scroll-based-velocity'
-import { motion } from 'framer-motion'
 import BlurFade from '@/components/magicui/blur-fade'
-import PulsatingButton from '@/components/magicui/pulsating-button'
-import Services from '@/components/Services'
+import Services from '@/components/Services.astro'
 import SineBackground from '@/components/SineBackground'
 import Contact from '@/components/Contact.astro'
 import ShimmerButton from '@/components/magicui/shimmer-button'
@@ -78,10 +74,8 @@ import ShimmerButton from '@/components/magicui/shimmer-button'
   />
 
   <section class="container my-32 grid items-center gap-6">
-    <Services client:load />
+    <Services />
   </section>
-
-  <Separator />
 
   <!-- ------------------- TEAM -----------------  -->
 

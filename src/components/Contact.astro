@@ -1,4 +1,5 @@
 ---
+import BlurFade from './magicui/blur-fade'
 import FlipText from './magicui/flip-text'
 ---
 
@@ -9,22 +10,18 @@ import FlipText from './magicui/flip-text'
     Contact Us
   </h1>
 
-  <p class="my-16 text-xl">
-    If you wish to book a session with us, personalize a your private
-    masterclass, request a quote or simply have a chat with us, please send us
-    an e-mail at
+  <p class="my-16 text-center text-xl">
+    If you wish to book a session with us, personalize a private masterclass,
+    request a quote or simply have a chat with us, we are happy to organize an
+    in-person or remote meeting with you as soon as possible. Please send us an
+    e-mail at
   </p>
 
-  <FlipText
-    className="text-2xl tracking-[-0.1em] text-black dark:text-white md:text-6xl md:leading-[5rem]"
-    word="info@680.studio"
-    client:load
-  />
+  <BlurFade delay={0.05} inView client:load>
+    <h1 class="text-2xl font-bold">
+      info@<span class="hidden">aaa</span>680.studio
+    </h1>
+  </BlurFade>
 
-  <p class="my-16 text-xl">
-    We will be happy to organize an in-person or remote meeting with you as soon
-    as possible.
-  </p>
-
-  <span class="hidden">aaa</span>
+  <p class="my-16 text-xl"></p>
 </div>
