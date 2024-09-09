@@ -6,6 +6,11 @@ html {
   scroll-behavior: smooth;
 }
 
+:target {
+  scroll-margin-top: 60px;
+  /* Adjust this value to match your navbar height */
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -74,6 +79,7 @@ html {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
