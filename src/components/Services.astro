@@ -1,16 +1,13 @@
 ---
 import { Separator } from '@radix-ui/react-separator'
 import { ArrowRight, FileAudio, Glasses, Mic } from 'lucide-react'
-import BlurFade from './magicui/blur-fade'
+import ShimmerButton from './magicui/shimmer-button'
 import {
   Card,
+  CardDescription,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
 } from './ui/card'
-import { ResponsiveButton } from './ui/responsive-button'
-import ShimmerButton from './magicui/shimmer-button'
 
 const data = [
   {
@@ -48,9 +45,8 @@ const data = [
 
 <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
   {
-    data.map((s, idx) => (
-      <BlurFade delay={0.25 + idx * 0.2} inView client:load>
-        <div class="h-full pb-16">
+    data.map((s) => (
+        <div class="h-full pb-16 animate-blur">
           <Card className="h-full border-none shadow-none">
             <CardHeader className="justify-even flex h-full gap-y-2">
               <img
@@ -85,7 +81,6 @@ const data = [
             </ShimmerButton>
           </a>
         </div>
-      </BlurFade>
     ))
   }
 </div>

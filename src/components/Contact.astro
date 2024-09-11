@@ -1,6 +1,4 @@
 ---
-import BlurFade from './magicui/blur-fade'
-import FlipText from './magicui/flip-text'
 ---
 
 <div class="flex w-full flex-col items-center gap-4 py-8">
@@ -17,11 +15,9 @@ import FlipText from './magicui/flip-text'
     e-mail at
   </p>
 
-  <BlurFade delay={0.05} inView client:load>
-    <h1 class="text-2xl font-bold">
+    <h1 class="text-2xl font-bold animate-blur">
       info@<span class="hidden">aaa</span>680.studio
     </h1>
-  </BlurFade>
 
   <p class="my-16 text-xl"></p>
 </div>

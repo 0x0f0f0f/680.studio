@@ -4,7 +4,6 @@ import WordPullUp from '@/components/magicui/word-pull-up'
 import { Separator } from '@/components/ui/separator'
 import Who from '@/components/Who.astro'
 import { VelocityScroll } from '@/components/magicui/scroll-based-velocity'
-import BlurFade from '@/components/magicui/blur-fade'
 import Services from '@/components/Services.astro'
 import SineBackground from '@/components/SineBackground'
 import Contact from '@/components/Contact.astro'
@@ -15,36 +14,34 @@ import ShimmerButton from '@/components/magicui/shimmer-button'
   title="680Hz Studios"
   description="Production, Recording, Mixing and Mastering Studios in Berlin."
 >
-  <SineBackground client:only />
+  <SineBackground className="animate-blur" client:only />
   <section class="container grid items-center gap-6 pb-8 pt-6 md:py-10">
     <div class="flex w-full flex-col items-center gap-4">
       <div class="flex h-[90vh] flex-col items-center justify-center gap-4">
         <WordPullUp
           client:load
-          className="text-4xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-7xl md:leading-[5rem]"
+          className="animate-blur text-4xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-7xl md:leading-[5rem]"
           words="680 Hz Studios"
         />
 
-        <BlurFade delay={0.25 * 0.05} inView client:load>
-          <p class="max-w-[700px] text-center text-lg text-muted-foreground">
-            Production, Recording, Mixing and Mastering Studios in Berlin.
-          </p>
-        </BlurFade>
+        <p
+          class="z-100 z-50 max-w-[700px] animate-blur text-center text-lg text-muted-foreground"
+        >
+          Production, Recording, Mixing and Mastering Studios in Berlin.
+        </p>
 
-        <BlurFade delay={0.25 * 0.05} inView client:load>
-          <a href="#about">
-            <!-- <PulsatingButton pulseColor="#000000" className={buttonVariants()}
+        <a href="#about" class="animate-blur">
+          <!-- <PulsatingButton pulseColor="#000000" className={buttonVariants()}
               >Explore Our Services</PulsatingButton
             > -->
-            <ShimmerButton className="shadow-2xl" client:only="react">
-              <span
-                class="gap-x-2 py-0 text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg"
-              >
-                Discover More
-              </span>
-            </ShimmerButton>
-          </a>
-        </BlurFade>
+          <ShimmerButton className="shadow-2xl" client:only="react">
+            <span
+              class="gap-x-2 py-0 text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg"
+            >
+              Discover More
+            </span>
+          </ShimmerButton>
+        </a>
       </div>
 
       <Separator />

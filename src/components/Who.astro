@@ -1,5 +1,6 @@
 ---
 import Image from 'astro/components/Image.astro'
+import { Github, Globe } from 'lucide-react'
 import {
   Card,
   CardContent,
@@ -7,10 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from './ui/card'
-import { Separator } from './ui/separator'
-import BlurFade from './magicui/blur-fade'
 import { ResponsiveButton } from './ui/responsive-button'
-import { Github, Globe } from 'lucide-react'
+import { Separator } from './ui/separator'
 
 const data = [
   {
@@ -37,7 +36,6 @@ const data = [
 <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
   {
     data.map((person, idx) => (
-      <BlurFade delay={0.25 + idx * 0.05} inView client:load>
         <Card className="h-full">
           <CardHeader className="gap-y-2">
             <Image
@@ -78,7 +76,6 @@ const data = [
             )}
           </CardContent>
         </Card>
-      </BlurFade>
     ))
   }
 </div>
