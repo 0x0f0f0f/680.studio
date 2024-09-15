@@ -3,6 +3,7 @@ import type { NavBarItem } from '@/lib/navbar'
 import MobileNav from '@/MobileNav'
 import { FileAudio, Info, Mail, UsersRound } from 'lucide-react'
 import { Button, buttonVariants } from './ui/button'
+import Image from 'astro/components/Image.astro'
 
 const navBarItems: NavBarItem[] = [
   {
@@ -36,10 +37,17 @@ const navBarItems: NavBarItem[] = [
   >
     <div class="flex gap-6 md:gap-10">
       <a href="/" class="flex items-center space-x-2">
-        <span class="inline-block font-bold">680Hz Studios</span>
+        <Image
+          src="/logo.svg"
+          width={200}
+          height={200}
+          class="z-100 z-50 mx-4 w-8 animate-blur"
+          alt={'680Hz Studios, Production, Recording, Mixing and Mastering Studios in Berlin.'}
+        />
+        <span class="inline-block animate-blur font-bold">680Hz Studios</span>
       </a>
     </div>
-    <div class="flex flex-1 items-center justify-end space-x-4">
+    <div class="flex flex-1 animate-blur items-center justify-end space-x-4">
       <!-- <nav class="flex items-center space-x-1">
         {
           navBarItems.map((i) => (
