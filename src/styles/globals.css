@@ -7,7 +7,7 @@ html {
 }
 
 :target {
-  scroll-margin-top: 60px;
+  scroll-margin-top: 70px;
   /* Adjust this value to match your navbar height */
 }
 
