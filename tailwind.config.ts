@@ -102,6 +102,13 @@ const config = {
         slide: "slide var(--speed) ease-in-out infinite alternate",
         blur: 'blur 0.8s ease-in-out',
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: '100%', // add required value here
+          }
+        }
+      }
     },
   },
   plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography'),],
