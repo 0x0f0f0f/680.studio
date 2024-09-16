@@ -1,9 +1,9 @@
 ---
 import type { NavBarItem } from '@/lib/navbar'
 import MobileNav from '@/MobileNav'
-import { FileAudio, Info, Mail, UsersRound } from 'lucide-react'
-import { Button, buttonVariants } from './ui/button'
 import Image from 'astro/components/Image.astro'
+import { Camera, FileAudio, Info, Mail, UsersRound } from 'lucide-react'
+import { buttonVariants } from './ui/button'
 
 const navBarItems: NavBarItem[] = [
   {
@@ -25,6 +25,11 @@ const navBarItems: NavBarItem[] = [
     label: 'Get in Touch',
     href: '/#contact',
     icon: Mail,
+  },
+  {
+    label: 'Follow Us',
+    href: 'https://instagram.com/680.studio',
+    icon: Camera,
   },
 ]
 ---
