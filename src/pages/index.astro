@@ -9,9 +9,7 @@ import SineBackground from '@/components/SineBackground'
 import Contact from '@/components/Contact.astro'
 import ShimmerButton from '@/components/magicui/shimmer-button'
 import Image from 'astro/components/Image.astro'
-
-import { Content as About } from '@/components/about.md'
-import Prose from '@/components/Prose.astro'
+import About from '@/components/About.astro'
 ---
 
 <BaseLayout
@@ -71,23 +69,7 @@ import Prose from '@/components/Prose.astro'
     client:load
   />
 
-  <div
-    class="mx-4 flex animate-blur flex-col flex-col-reverse items-center gap-x-16 py-24 sm:mx-16 sm:grid sm:grid-cols-2"
-  >
-    <Image
-      src="/studio1.jpg"
-      width={600}
-      height={600}
-      class="w-full rounded-xl"
-      alt={'Our studios'}
-    />
-
-    <div
-      class="prose-a:text-black-600 prose w-full pb-8 dark:prose-invert prose-h1:text-4xl prose-h1:font-semibold prose-p:text-justify prose-a:font-semibold prose-img:rounded-xl sm:prose-h1:text-justify sm:prose-p:text-justify"
-    >
-      <About />
-    </div>
-  </div>
+  <About />
 
   <!-- ------------------- SERVICES -----------------  -->
 
