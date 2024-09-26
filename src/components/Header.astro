@@ -4,6 +4,7 @@ import MobileNav from '@/MobileNav'
 import Image from 'astro/components/Image.astro'
 import { Camera, FileAudio, Info, Mail, UsersRound } from 'lucide-react'
 import { buttonVariants } from './ui/button'
+import { cn } from '@/lib/utils'
 
 const navBarItems: NavBarItem[] = [
   {
@@ -22,6 +23,12 @@ const navBarItems: NavBarItem[] = [
     icon: UsersRound,
   },
   {
+    label: 'Masterclass Courses',
+    href: '/masterclasses',
+    className: 'font-bold',
+    icon: UsersRound,
+  },
+  {
     label: 'Get in Touch',
     href: '/#contact',
     icon: Mail,
@@ -35,10 +42,10 @@ const navBarItems: NavBarItem[] = [
 ---
 
 <header
-  class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+  class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/90"
 >
   <div
-    class="container flex h-16 items-center space-x-4 px-4 sm:justify-between sm:space-x-0"
+    class="flex h-16 items-center space-x-4 px-4 sm:justify-between sm:space-x-0"
   >
     <div class="flex gap-6 md:gap-10">
       <a href="/" class="flex items-center space-x-2">
@@ -53,19 +60,6 @@ const navBarItems: NavBarItem[] = [
       </a>
     </div>
     <div class="flex flex-1 animate-blur items-center justify-end space-x-4">
-      <!-- <nav class="flex items-center space-x-1">
-        {
-          navBarItems.map((i) => (
-            <a
-              href={i.href}
-              rel="noreferrer"
-              class={buttonVariants({ variant: 'ghost' })}
-            >
-              {i.label}
-            </a>
-          ))
-        }
-      </nav> -->
       <div class="mr-4 hidden gap-2 md:flex">
         {
           navBarItems.map((i) => (
@@ -74,7 +68,7 @@ const navBarItems: NavBarItem[] = [
               rel="noreferrer"
               class={buttonVariants({ variant: 'ghost' })}
             >
-              {i.label}
+              <span class={cn('text-base', i.className ?? '')}>{i.label}</span>
             </a>
           ))
         }

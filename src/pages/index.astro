@@ -105,21 +105,15 @@ import About from '@/components/About.astro'
 
   <div id="contact"></div>
 
-  <section class="container my-16 grid items-center gap-6 sm:my-32">
+  <section
+    class="container my-16 grid w-full items-center gap-6 text-center sm:my-32"
+  >
     <Separator />
+    <h1
+      class="text-4xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-7xl md:leading-[5rem]"
+    >
+      Contact Us
+    </h1>
     <Contact />
   </section>
-
-  <!-- <section>
-    <ClientsChart
-      title="Our Clients"
-      label="Our Clients"
-      description="November 2022 - Now"
-      footer="Trusting our professional audio services"
-      chartData={[{ clients: 85, fill: 'var(--color-safari)' }]}
-      client:load
-    />
-
-    <Separator />
-  </section> -->
 </BaseLayout>

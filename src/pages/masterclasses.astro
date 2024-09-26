@@ -1,0 +1,29 @@
+---
+import Contact from '@/components/Contact.astro'
+import SineBackground from '@/components/SineBackground'
+import { Separator } from '@/components/ui/separator'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+---
+
+<BaseLayout
+  title="680Hz Studios"
+  description="Production, Recording, Mixing and Mastering Studios in Berlin."
+>
+  <section
+    class="container grid animate-blur items-center gap-6 pb-8 pt-6 md:py-10"
+  >
+    <div class="flex w-full flex-col items-center gap-4">
+      <div class="flex h-[90vh] flex-col items-center justify-center gap-4">
+        <!-- <h1>Coming Soon</h1> -->
+        <h1
+          class="text-4xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-7xl md:leading-[5rem]"
+        >
+          Coming Soon.
+        </h1>
+        <Contact />
+      </div>
+    </div>
+  </section>
+
+  <div id="contact"></div>
+</BaseLayout>

@@ -2,12 +2,7 @@
 import { Separator } from '@radix-ui/react-separator'
 import { ArrowRight, FileAudio, Glasses, Mic } from 'lucide-react'
 import ShimmerButton from './magicui/shimmer-button'
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from './ui/card'
+import { Card, CardDescription, CardHeader, CardTitle } from './ui/card'
 
 const data = [
   {
@@ -35,8 +30,8 @@ const data = [
     name: 'Masterclasses',
     description:
       'Are you looking to learn how to produce music? How to record instruments, or how to mix and master your tracks? No worries, we provide in-person, in-depth, expert-led masterclass sessions',
-    href: '#contact',
-    cta: 'Learn more',
+    href: '/masterclasses',
+    cta: 'Learn More',
     background: '/masterclass.jpg',
     className: 'lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-4',
   },
@@ -46,41 +41,34 @@ const data = [
 <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
   {
     data.map((s) => (
-        <div class="h-full pb-16 animate-blur">
-          <Card className="h-full border-none shadow-none">
-            <CardHeader className="justify-even flex h-full gap-y-2">
-              <img
-                src={s.background}
-                alt={s.name}
-                class="w-full rounded-t-md object-cover"
-                style={{ aspectRatio: '300/200', objectFit: 'cover' }}
-              />
-              <Separator className="my-4" />
-              <CardTitle className="flex items-center gap-4 md:text-xl lg:text-2xl">
-                <s.Icon />
-                {s.name}
-              </CardTitle>
-              <CardDescription className="lg:text-xl">
-                {s.description}
-              </CardDescription>
-            </CardHeader>
-          </Card>
-          <a href={s.href} class="flex w-full items-center justify-center">
-            {/* <ResponsiveButton
-                className="w-full"
-                variant="outline"
-                label={s.cta}
-                icon={ArrowRight}
-                alwaysShowLabel
-              /> */}
-            <ShimmerButton className="shadow-2xl">
-              <span class="flex items-center gap-x-2 whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
-                {s.cta}
-                <ArrowRight />
-              </span>
-            </ShimmerButton>
-          </a>
-        </div>
+      <div class="h-full animate-blur pb-16">
+        <Card className="h-full border-none shadow-none">
+          <CardHeader className="justify-even flex h-full gap-y-2">
+            <img
+              src={s.background}
+              alt={s.name}
+              class="w-full rounded-t-md object-cover"
+              style={{ aspectRatio: '300/200', objectFit: 'cover' }}
+            />
+            <Separator className="my-4" />
+            <CardTitle className="flex items-center gap-4 md:text-xl lg:text-2xl">
+              <s.Icon />
+              {s.name}
+            </CardTitle>
+            <CardDescription className="lg:text-xl">
+              {s.description}
+            </CardDescription>
+          </CardHeader>
+        </Card>
+        <a href={s.href} class="flex w-full items-center justify-center">
+          <ShimmerButton className="shadow-2xl">
+            <span class="flex items-center gap-x-2 whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+              {s.cta}
+              <ArrowRight />
+            </span>
+          </ShimmerButton>
+        </a>
+      </div>
     ))
   }
 </div>
