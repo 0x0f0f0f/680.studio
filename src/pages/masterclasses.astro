@@ -1,8 +1,11 @@
 ---
 import Contact from '@/components/Contact.astro'
+import Prose from '@/components/Prose.astro'
 import SineBackground from '@/components/SineBackground'
 import { Separator } from '@/components/ui/separator'
 import BaseLayout from '@/layouts/BaseLayout.astro'
+
+import { Content as MasterclassDescription } from '@/masterclass-description.md'
 ---
 
 <BaseLayout
@@ -13,17 +16,36 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
     class="container grid animate-blur items-center gap-6 pb-8 pt-6 md:py-10"
   >
     <div class="flex w-full flex-col items-center gap-4">
-      <div class="flex h-[90vh] flex-col items-center justify-center gap-4">
+      <div class="flex h-[90vh] flex-col items-center justify-center gap-16">
         <!-- <h1>Coming Soon</h1> -->
         <h1
           class="text-4xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-7xl md:leading-[5rem]"
         >
-          Coming Soon.
+          Masterclass Courses
         </h1>
-        <Contact />
+
+        <h2 class="text-2xl font-bold">
+          In-depth, expert-led professional courses in Berlin
+        </h2>
+        <div class="w-[60%]">
+          <Prose> <MasterclassDescription /> </Prose>
+        </div>
       </div>
     </div>
+    <Separator />
   </section>
+  <section
+    class="container grid animate-blur items-center gap-6 pb-8 pt-6 md:py-10"
+  >
+    <div class="flex h-[50vh] flex-col items-center justify-center gap-4">
+      <h1
+        class="text-3xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-6xl md:leading-[5rem]"
+      >
+        Request a Quote
+      </h1>
+      <div id="contact"></div>
 
-  <div id="contact"></div>
+      <Contact />
+    </div>
+  </section>
 </BaseLayout>
