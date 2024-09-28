@@ -1,11 +1,35 @@
 ---
 import Contact from '@/components/Contact.astro'
+import ShimmerButton from '@/components/magicui/shimmer-button'
 import Prose from '@/components/Prose.astro'
-import SineBackground from '@/components/SineBackground'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
+import Image from 'astro/components/Image.astro'
+
 import { Content as MasterclassDescription } from '@/masterclass-description.md'
+import { getCollection } from 'astro:content'
+import { Badge, Search } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
+import { ResponsiveButton } from '@/components/ui/responsive-button'
+
+const _courses = await Promise.all(
+  (await getCollection('courses')).map(async (x) => {
+    return { ...x, Content: (await x.render()).Content }
+  })
+)
+
+const courses = _courses.sort(
+  (a, b) => (a.data.weight ?? 9999) - (b.data.weight ?? 9999)
+)
 ---
 
 <BaseLayout
@@ -13,31 +37,108 @@ import { Content as MasterclassDescription } from '@/masterclass-description.md'
   description="Production, Recording, Mixing and Mastering Studios in Berlin."
 >
   <section
-    class="container grid animate-blur items-center gap-6 pb-8 pt-6 md:py-10"
+    class="container z-50 grid animate-blur items-center gap-6 pb-8 pt-6 md:py-10"
   >
-    <div class="flex w-full flex-col items-center gap-4">
-      <div class="flex h-[90vh] flex-col items-center justify-center gap-16">
+    <div class="z-50 flex w-full flex-col items-center gap-4">
+      <div
+        class="z-50 my-40 flex flex-col items-center justify-center gap-16 lg:my-2 lg:h-[90vh]"
+      >
         <!-- <h1>Coming Soon</h1> -->
         <h1
-          class="text-4xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-7xl md:leading-[5rem]"
+          class="z-50 text-4xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-7xl md:leading-[5rem]"
         >
           Masterclass Courses
         </h1>
 
-        <h2 class="text-2xl font-bold">
+        <h2 class="text-center text-2xl font-bold">
           In-depth, expert-led professional courses in Berlin
         </h2>
-        <div class="w-[60%]">
+        <div class="lg:w-[60%]">
           <Prose> <MasterclassDescription /> </Prose>
         </div>
+
+        <a href="#courses" class="animate-blur">
+          <ShimmerButton className="shadow-2xl" client:only="react">
+            <span
+              class="gap-x-2 py-0 text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg"
+            >
+              Discover the Courses
+            </span>
+          </ShimmerButton>
+        </a>
       </div>
     </div>
     <Separator />
   </section>
+  <section class="grid animate-blur items-center gap-6 pb-8 pt-6 md:py-10">
+    <div class="flex flex-col items-center justify-center gap-4">
+      <div id="courses"></div>
+      <h1
+        class="text-3xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-6xl md:leading-[5rem]"
+      >
+        Courses and Topics
+      </h1>
+    </div>
+
+    <div class="mt-20 flex flex-col gap-4">
+      {
+        courses.map((course, i) => (
+          <>
+            <div class="items-left mx-4 flex animate-blur flex-col flex-col-reverse gap-x-16 py-12 md:mx-16 md:grid md:grid-cols-3">
+              <Image
+                src={course.data.img}
+                width={600}
+                height={600}
+                class="col-span-1 mt-8 w-full rounded-xl md:mt-2"
+                alt={'Our studios'}
+              />
+
+              <div class="col-span-2 flex flex-col gap-y-4">
+                {/* <a href={`/courses/${course.slug}`}> */}
+                <h1 class="text-2xl font-bold lg:text-3xl">
+                  {course.data.title}
+                </h1>
+                {/* </a> */}
+
+                <p class="text-sm">
+                  <span class="text-muted-foreground">Instructors: </span>
+                  <a href="/#who">
+                    <span class="font-medium">{course.data.instructors}</span>
+                  </a>
+                </p>
+
+                <p class="text-sm">
+                  <span class="text-muted-foreground">Location: </span>
+                  <a href="/#who">
+                    <span class="font-medium">{course.data.location}</span>
+                  </a>
+                </p>
+
+                <div>
+                  <h3 class="mb-2 font-semibold">Topics covered:</h3>
+
+                  <Prose>
+                    <course.Content />
+                  </Prose>
+                </div>
+
+                <div class="flex w-full justify-end">
+                  <a href="#contact">
+                    <ResponsiveButton label="Find out More" icon={Search} />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <Separator />
+          </>
+        ))
+      }
+    </div>
+  </section>
   <section
     class="container grid animate-blur items-center gap-6 pb-8 pt-6 md:py-10"
   >
-    <div class="flex h-[50vh] flex-col items-center justify-center gap-4">
+    <div class="flex flex-col items-center justify-center gap-4">
       <h1
         class="text-3xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-6xl md:leading-[5rem]"
       >

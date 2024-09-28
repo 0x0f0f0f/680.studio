@@ -1,0 +1,24 @@
+---
+import Prose from '@/components/Prose.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
+
+export async function getStaticPaths() {
+  const blogPosts = await getCollection('courses')
+  return blogPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }))
+}
+
+const { post } = Astro.props
+console.log(post)
+const { Content } = await post.render()
+---
+
+<BaseLayout description={post.data.description} title={post.data.title}>
+  <Prose>
+    <h1 class="">{post.data.title}</h1>
+    <Content />
+  </Prose>
+</BaseLayout>

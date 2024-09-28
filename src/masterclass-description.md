@@ -1,3 +1,7 @@
+Nowadays, we are all spending a lot of time in front ouf our laptops and smartphones.
+
+**To learn something new, the last thing you need is more screen time**, watching video courses that leave you with even more screen fatigue.
+
 At **[680Hz Studios](https://680.studio)** we are offering in-depth, expert-led professional courses, that take place **in person** in **Berlin**.
 We want offer a refreshing alternative, where you can dive into hands-on
 learning with expert instructors who guide you in every step.
