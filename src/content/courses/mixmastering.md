@@ -2,6 +2,7 @@
 title: 'Advanced Mixing Techniques and Audio Mastering'
 weight: 10
 instructors: Michele Mucci
+duration: Flexible
 img: /mixingmastering.jpg
 location: Berlin Schöneberg, 680Hz Studios
 ---
