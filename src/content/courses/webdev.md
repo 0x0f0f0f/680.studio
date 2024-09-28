@@ -11,7 +11,7 @@ Jumpstart your journey into full stack web development with this comprehensive m
 This course will take you from zero to building full-scale, professional web applications using the latest industry standards in both frontend and backend development.
 On the frontend you'll master fundamental tools and frameworks like **TypeScript**, **React**, **Tailwind CSS, and Shadcn UI**, all while using **Visual Studio Code**, the go-to editor for modern developers. You'll learn to build stunning, responsive interfaces with confidence.
 
-For the backend, the course covers **Backend as a Service (BaaS)** platforms like **Firebase and Pocketbase**, alongside working with mainstream databases such as **MongoDB or PostgreSQL**. You will learn how develop faster, without getting bogged down by infrastructure management.
+For the backend, the course covers all you need to know about **Docker**, and mostly **Backend as a Service (BaaS)** platforms like **Firebase and Pocketbase**, alongside working with mainstream databases such as **MongoDB or PostgreSQL**. You will learn how develop faster, without getting slowed down by infrastructure management.
 
 You'll also get hands-on with
 

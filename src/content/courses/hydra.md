@@ -1,5 +1,5 @@
 ---
-title: 'Audioreactive Visual Programming with Hydra video synth'
+title: 'Audioreactive Visual Programming with Hydra Video Synth'
 weight: 99
 instructors: Alessandro Cheli
 img: /hydra.jpg
