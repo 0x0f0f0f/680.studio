@@ -6,6 +6,18 @@ const config = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   prefix: '',
   theme: {
+    zIndex: {
+      '0': '0',
+      '10': '10',
+      '20': '20',
+      '30': '30',
+      '40': '40',
+      '50': '50',
+      'auto': 'auto',
+      '25': '25',
+      '75': '75',
+      '100': '100',
+    },
     container: {
       center: true,
       padding: '2rem',
