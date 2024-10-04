@@ -13,7 +13,7 @@ const config = {
       '30': '30',
       '40': '40',
       '50': '50',
-      'auto': 'auto',
+      auto: 'auto',
       '25': '25',
       '75': '75',
       '100': '100',
@@ -26,6 +26,11 @@ const config = {
       },
     },
     extend: {
+      textShadow: {
+        sm: '0 1px 2px var(--tw-text-shadow-color)',
+        DEFAULT: '0 2px 4px var(--tw-text-shadow-color)',
+        lg: '0 8px 24px var(--tw-text-shadow-color)',
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -71,8 +76,20 @@ const config = {
       },
       keyframes: {
         blur: {
-          '0%': { filter: "blur(5px)", opacity: '0', transform: "translate(0, 15px)" },
-          '100%': { filter: "blur(0px)" },
+          '0%': {
+            filter: 'blur(5px)',
+            opacity: '0',
+            transform: 'translate(0, 15px)',
+          },
+          '100%': { filter: 'blur(0px)' },
+        },
+        'blur-20': {
+          '0%': {
+            filter: 'blur(5px)',
+            opacity: '0',
+            transform: 'translate(0, 15px)',
+          },
+          '100%': { filter: 'blur(0px)', opacity: '20' },
         },
         'accordion-down': {
           from: { height: '0' },
@@ -83,47 +100,68 @@ const config = {
           to: { height: '0' },
         },
         pulse: {
-          "0%, 100%": { boxShadow: "0 0 0 0 var(--pulse-color)" },
-          "50%": { boxShadow: "0 0 0 8px var(--pulse-color)" },
+          '0%, 100%': { boxShadow: '0 0 0 0 var(--pulse-color)' },
+          '50%': { boxShadow: '0 0 0 8px var(--pulse-color)' },
         },
-        "spin-around": {
-          "0%": {
-            transform: "translateZ(0) rotate(0)",
+        'spin-around': {
+          '0%': {
+            transform: 'translateZ(0) rotate(0)',
           },
-          "15%, 35%": {
-            transform: "translateZ(0) rotate(90deg)",
+          '15%, 35%': {
+            transform: 'translateZ(0) rotate(90deg)',
           },
-          "65%, 85%": {
-            transform: "translateZ(0) rotate(270deg)",
+          '65%, 85%': {
+            transform: 'translateZ(0) rotate(270deg)',
           },
-          "100%": {
-            transform: "translateZ(0) rotate(360deg)",
+          '100%': {
+            transform: 'translateZ(0) rotate(360deg)',
           },
         },
         slide: {
           to: {
-            transform: "translate(calc(100cqw - 100%), 0)",
+            transform: 'translate(calc(100cqw - 100%), 0)',
           },
         },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        pulse: "pulse var(--duration) ease-out infinite",
-        "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
-        slide: "slide var(--speed) ease-in-out infinite alternate",
+        pulse: 'pulse var(--duration) ease-out infinite',
+        'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
+        slide: 'slide var(--speed) ease-in-out infinite alternate',
         blur: 'blur 0.8s ease-in-out',
+        'blur-20': 'blur 0.8s ease-in-out',
       },
       typography: {
         DEFAULT: {
           css: {
             maxWidth: '100%', // add required value here
-          }
-        }
-      }
+          },
+        },
+      },
     },
   },
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography'),],
+  plugins: [
+    require('tailwindcss-animate'),
+    require('@tailwindcss/typography'),
+    function ({ addUtilities }) {
+      const shadowColor = 'rgba(0, 0, 0, 0.7)'
+      const shadowClasses = {
+        'text-shadow': {
+          textShadow: `${shadowColor} 0 2px 4px`,
+        },
+        'text-shadow-sm': {
+          textShadow: `${shadowColor} 0 1px 2px`,
+        },
+        'text-shadow-lg': {
+          textShadow: `${shadowColor} 0 8px 24px`,
+        },
+      }
+      Object.entries(shadowClasses).forEach(([className, styles]) => {
+        addUtilities({ [className]: styles })
+      })
+    },
+  ],
 } satisfies Config
 
 export default config

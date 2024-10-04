@@ -28,38 +28,42 @@ const courses = _courses.sort(
   description="Production, Recording, Mixing and Mastering Studios in Berlin."
 >
   <section
-    class="container z-50 grid animate-blur items-center gap-6 pb-8 pt-6 md:py-10"
+    class="z-50 grid w-full items-center gap-6 bg-[url('/masterclass-background.jpg')] bg-cover bg-center backdrop-blur-md backdrop-filter"
   >
-    <div class="z-50 flex w-full flex-col items-center gap-4">
+    <div class="bg-black/50 backdrop-blur-sm backdrop-filter">
       <div
-        class="z-50 flex flex-col items-center justify-center gap-16 md:my-40 lg:my-2 lg:h-[90vh]"
+        class="container z-50 flex w-full flex-col items-center gap-4 pb-8 pt-6 text-white md:py-10"
       >
-        <!-- <h1>Coming Soon</h1> -->
-        <h1
-          class="z-50 text-center text-4xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-7xl md:leading-[5rem]"
+        <div
+          class="z-50 flex animate-blur flex-col items-center justify-center gap-16 md:my-40 lg:my-2 lg:h-[90vh]"
         >
-          Masterclass Courses
-        </h1>
+          <!-- <h1>Coming Soon</h1> -->
+          <h1
+            class="text-shadow z-50 text-center text-4xl font-bold tracking-[-0.02em] text-white dark:text-white md:text-7xl md:leading-[5rem]"
+          >
+            Masterclass Courses
+          </h1>
 
-        <h2 class="text-center text-2xl font-bold">
-          In-depth, expert-led professional courses in Berlin
-        </h2>
-        <div class="lg:w-[60%]">
-          <Prose> <MasterclassDescription /> </Prose>
+          <h2 class="text-center text-2xl font-bold">
+            In-depth, expert-led professional courses in Berlin
+          </h2>
+          <div class="lg:w-[60%]">
+            <Prose> <MasterclassDescription /> </Prose>
+          </div>
+
+          <a href="#courses" class="animate-blur">
+            <ShimmerButton className="shadow-2xl" client:only="react">
+              <span
+                class="gap-x-2 py-0 text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg"
+              >
+                Discover the Courses
+              </span>
+            </ShimmerButton>
+          </a>
         </div>
-
-        <a href="#courses" class="animate-blur">
-          <ShimmerButton className="shadow-2xl" client:only="react">
-            <span
-              class="gap-x-2 py-0 text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg"
-            >
-              Discover the Courses
-            </span>
-          </ShimmerButton>
-        </a>
       </div>
+      <Separator />
     </div>
-    <Separator />
   </section>
   <section class="grid animate-blur items-center gap-6 pb-8 pt-6 md:py-10">
     <div class="flex flex-col items-center justify-center gap-4">
