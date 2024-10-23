@@ -2,7 +2,7 @@
 title: Creative Music Production & Sound Design with Bitwig Studio
 weight: 25
 instructors: Hamza Ben Abdallah, Alessandro Cheli
-img: /creative.jpg
+img: /creative2.jpg
 location: Berlin, 680Hz Studios
 duration: Flexible, with a project assignment and review.
 ---

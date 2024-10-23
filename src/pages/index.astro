@@ -10,6 +10,8 @@ import Contact from '@/components/Contact.astro'
 import ShimmerButton from '@/components/magicui/shimmer-button'
 import Image from 'astro/components/Image.astro'
 import About from '@/components/About.astro'
+
+import { Content as Clients } from '@/clients.md'
 ---
 
 <BaseLayout
@@ -71,6 +73,25 @@ import About from '@/components/About.astro'
 
   <About />
 
+  <!-- ------------------- CLIENTS -----------------  -->
+
+  <div id="clients"></div>
+
+  <VelocityScroll
+    text=" - Our clients "
+    default_velocity={5}
+    className="font-display text-center text-5xl font-bold tracking-[-0.02em] text-black drop-shadow-sm dark:text-white md:text-7xl md:leading-[5rem]"
+    client:load
+  />
+
+  <section class="container my-12 grid items-center gap-6 sm:my-32">
+    <div
+      class="prose-a:text-black-600 sm:prose-h1:text-lext prose w-full pb-8 dark:prose-invert prose-h1:text-4xl prose-h1:font-semibold prose-p:text-left prose-p:text-xl prose-a:font-semibold prose-img:rounded-xl sm:prose-p:text-left"
+    >
+      <Clients />
+    </div>
+  </section>
+
   <!-- ------------------- SERVICES -----------------  -->
 
   <div id="services"></div>
@@ -82,7 +103,7 @@ import About from '@/components/About.astro'
     client:load
   />
 
-  <section class="container my-16 grid items-center gap-6 sm:my-32">
+  <section class="container my-12 grid items-center gap-6 sm:my-32">
     <Services />
   </section>
 
@@ -97,7 +118,7 @@ import About from '@/components/About.astro'
     client:load
   />
 
-  <section class="container my-16 grid items-center gap-6 sm:my-32">
+  <section class="container my-12 grid items-center gap-6 sm:my-32">
     <Who />
   </section>
 

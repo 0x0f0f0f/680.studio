@@ -9,16 +9,16 @@ const sections = await getCollection('about')
 const sectionsWithContent = await Promise.all(
   sections.map(async (x) => {
     return { ...x, Content: (await x.render()).Content }
-  }),
+  })
 )
 ---
 
-<div class="my-24">
+<div class="my-12 sm:my-24">
   {
     sectionsWithContent.map((s, i) => {
       return (
         <>
-          <div class="mx-4 flex animate-blur flex-col flex-col-reverse items-center gap-x-16 py-12 sm:mx-16 sm:grid sm:grid-cols-2">
+          <div class="mx-4 flex animate-blur flex-col flex-col-reverse items-center gap-x-16 sm:mx-16 sm:grid sm:grid-cols-2 sm:py-12">
             <Image
               src={s.data.img}
               width={600}
@@ -27,7 +27,7 @@ const sectionsWithContent = await Promise.all(
               alt={'Our studios'}
             />
 
-            <div class="prose-a:text-black-600 prose w-full pb-8 dark:prose-invert prose-h1:text-4xl prose-h1:font-semibold prose-p:text-justify prose-p:text-lg prose-a:font-semibold prose-img:rounded-xl sm:prose-h1:text-justify sm:prose-p:text-justify">
+            <div class="prose-a:text-black-600 sm:prose-h1:text-lext prose w-full pb-8 dark:prose-invert prose-h1:text-4xl prose-h1:font-semibold prose-p:text-left prose-p:text-lg prose-a:font-semibold prose-img:rounded-xl sm:prose-p:text-left">
               <s.Content />
             </div>
           </div>
