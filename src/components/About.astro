@@ -18,14 +18,19 @@ const sectionsWithContent = await Promise.all(
     sectionsWithContent.map((s, i) => {
       return (
         <>
-          <div class="mx-4 flex animate-blur flex-col flex-col-reverse items-center gap-x-16 sm:mx-16 sm:grid sm:grid-cols-2 sm:py-12">
-            <Image
-              src={s.data.img}
-              width={600}
-              height={600}
-              class={cn('w-full rounded-xl', i % 2 == 0 ? '' : 'sm:order-last')}
-              alt={'Our studios'}
-            />
+          <div class="mx-4 flex animate-blur flex-col flex-col-reverse items-center gap-x-16 py-6 sm:mx-16 sm:grid sm:grid-cols-2 sm:py-12">
+            <a
+              href={s.data.img_link ?? '#services'}
+              class={i % 2 == 0 ? '' : 'sm:order-last'}
+            >
+              <Image
+                src={s.data.img}
+                width={600}
+                height={600}
+                class={'w-full rounded-xl'}
+                alt={'Our studios'}
+              />
+            </a>
 
             <div class="prose-a:text-black-600 sm:prose-h1:text-lext prose w-full pb-8 dark:prose-invert prose-h1:text-4xl prose-h1:font-semibold prose-p:text-left prose-p:text-lg prose-a:font-semibold prose-img:rounded-xl sm:prose-p:text-left">
               <s.Content />
