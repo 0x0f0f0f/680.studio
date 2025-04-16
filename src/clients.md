@@ -2,6 +2,7 @@
 
 2easy2sayno,
 Alessio Collina,
+Alessandro Cheli,
 Banda Randa,
 Bar Capolinea,
 Brovnie,
