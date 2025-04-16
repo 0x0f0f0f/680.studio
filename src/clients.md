@@ -1,4 +1,4 @@
-# Artists, companies and lables that have worked with us:
+# Artists, companies and labels that have worked with us:
 
 2easy2sayno,
 Alessio Collina,
