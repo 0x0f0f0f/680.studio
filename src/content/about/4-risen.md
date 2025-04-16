@@ -5,7 +5,7 @@ img_link: 'https://risen-pr.com'
 
 # We have partnered with [RISEN PR](https://risen-pr.com)
 
-With **over 15 years** combined experience in the dance music across **labels,
+With **over 15 years** of in the dance music across **labels,
 clubbing and festivals**, [RISEN PR](https://risen-pr.com) class as specialists
 in dance music and nightlife promotion. The goal is empowering labels, artists
 and promoters who more than grafted the light they deserve.
